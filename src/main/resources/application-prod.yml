@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/anyi
+    # 替换为生产环境下的账号与密码
+    username: root
+    password: root
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      # 导入初始数据需设置 always
+      mode: never
+
+logging:
+  level:
+    icu.agony.anyi: info
