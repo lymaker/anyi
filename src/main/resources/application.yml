@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/anyi
+    username: root
+    password: root
+
+logging:
+  level:
+    icu.agony.anyi: debug
+
+sa-token:
+  is-print: false
