@@ -1,5 +1,6 @@
 package icu.agony.anyi.service.impl;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import icu.agony.anyi.controller.param.LoginParam;
 import icu.agony.anyi.exception.LoginException;
@@ -26,6 +27,11 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void login(LoginParam param) {
         AdminEntity entity = modelMapper.map(param, AdminEntity.class);
+
+        // 密码加密
+        String encrypt = SaSecureUtil.sha256(entity.getPassword());
+        entity.setPassword(encrypt);
+
         Example<AdminEntity> example = Example.of(entity);
         adminRepository
             .findOne(example)
