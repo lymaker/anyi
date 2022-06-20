@@ -6,10 +6,7 @@ import icu.agony.anyi.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -26,7 +23,16 @@ public class AdminController {
 
     @PostMapping("/login")
     public Response login(@RequestBody @Validated LoginParam param) {
-        adminService.login(param);
-        return Response.of(Status.LOGIN_SUCCESS);
+        return adminService.login(param) ? Response.of(Status.LOGIN_OK) : Response.of(Status.LOGIN);
+    }
+
+    @DeleteMapping("/logout")
+    public void logout() {
+        adminService.logout();
+    }
+
+    @GetMapping("/login-status")
+    public Response loginStatus() {
+        return adminService.loginStatus() ? Response.of(Status.ON_LINE_OK) : Response.of(Status.OFF_LINE);
     }
 }

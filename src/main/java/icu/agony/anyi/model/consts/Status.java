@@ -13,12 +13,15 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Status {
     // admin status
-    LOGIN_SUCCESS(21001, "登录成功"),
-    LOGIN_FAIL(41001, "登陆失败"),
+    LOGIN_OK(21001, "登录成功"),
+    LOGIN(41001, "登录失败"),
 
-    // param status
-    PARAM_ERROR(40001, "参数错误");
+    ON_LINE_OK(21002, "在线"),
+    OFF_LINE(41002, "离线"),
 
+    // error
+    ERROR(50000, "未知错误"),
+    PARAM_ERROR(50001, "参数错误");
 
     private final Integer code;
     private final String message;
