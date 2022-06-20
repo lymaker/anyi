@@ -26,7 +26,6 @@ public class AdminController {
 
     @PostMapping("/login")
     public Response login(@RequestBody @Validated LoginParam param) {
-        log.info("login() -> param: [{}]", param);
         adminService.login(param);
         return Response.of(Status.LOGIN_SUCCESS);
     }

@@ -17,3 +17,5 @@ spring:
 logging:
   level:
     icu.agony.anyi: info
+  file:
+    name: ${anyi.workspace:${user.home}/anyi/logs}/anyi.log

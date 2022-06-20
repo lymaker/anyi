@@ -7,8 +7,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.io.File;
-
 /**
  * @author LiuYun
  * @version 1.0
@@ -29,7 +27,8 @@ public class MvcConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
             .addResourceHandler("/**")
-            .addResourceLocations("file:" + anYiDirectory.getAbsolutePath(AnYiDirectory.Path.APP_WEB) + File.separator);
+            .addResourceLocations(
+                String.format("file:%s/", anYiDirectory.getAbsolutePath(AnYiDirectory.Path.APP_WEB)));
         registry
             .addResourceHandler("/admin/**")
             .addResourceLocations("classpath:/static/");
