@@ -12,7 +12,7 @@ spring:
     defer-datasource-initialization: true
   sql:
     init:
-      # 导入初始数据需赋值 ALWAYS
+      # 导入初始数据需赋值 always
       mode: ${init:never}
 
 logging:
