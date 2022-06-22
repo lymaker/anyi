@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: dev
+  mvc:
+    servlet:
+      load-on-startup: 1
 
 sa-token:
   is-print: false

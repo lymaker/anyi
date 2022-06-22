@@ -1,18 +1,19 @@
+# demo: --db.username=root --db.password=root --init=always
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/anyi
-    # 替换为生产环境下的账号与密码
-    username: root
-    password: root
+    username: ${db.username}
+    password: ${db.password}
   jpa:
     open-in-view: true
     hibernate:
       ddl-auto: update
+    defer-datasource-initialization: true
   sql:
     init:
-      # 导入初始数据需设置 always
-      mode: never
+      # 导入初始数据需赋值 ALWAYS
+      mode: ${init:never}
 
 logging:
   level:
