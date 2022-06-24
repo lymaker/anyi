@@ -23,7 +23,8 @@ public class AdminController {
 
     @PostMapping("/login")
     public Response login(@RequestBody @Validated LoginParam param) {
-        return adminService.login(param) ? Response.of(Status.LOGIN_OK) : Response.of(Status.LOGIN);
+        adminService.login(param);
+        return Response.of(Status.LOGIN_OK);
     }
 
     @DeleteMapping("/logout")
@@ -31,8 +32,9 @@ public class AdminController {
         adminService.logout();
     }
 
-    @GetMapping("/login-status")
-    public Response loginStatus() {
-        return adminService.loginStatus() ? Response.of(Status.ON_LINE_OK) : Response.of(Status.OFF_LINE);
+    @GetMapping("/check-login")
+    public Response checkLogin() {
+        adminService.checkLogin();
+        return Response.of(Status.ON_LINE_OK);
     }
 }

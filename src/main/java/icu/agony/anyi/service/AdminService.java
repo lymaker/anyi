@@ -7,10 +7,10 @@ import icu.agony.anyi.controller.param.LoginParam;
  * @version 1.0
  */
 public interface AdminService {
-    boolean login(LoginParam param);
+    void login(LoginParam param);
 
     void logout();
 
-    boolean loginStatus();
+    void checkLogin();
 
 }
