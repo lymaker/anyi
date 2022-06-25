@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 /**
  * @author LiuYun
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotEmpty;
 @ToString
 public class LoginParam {
     @NotEmpty
+    @Size(min = 6, max = 11)
     private String username;
 
     @NotEmpty
