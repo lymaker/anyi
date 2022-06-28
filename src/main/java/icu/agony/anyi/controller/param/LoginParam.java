@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 @ToString
 public class LoginParam {
     @NotEmpty
-    @Size(min = 6, max = 11)
+    @Size(min = 4, max = 11)
     private String username;
 
     @NotEmpty
